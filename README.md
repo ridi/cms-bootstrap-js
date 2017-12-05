@@ -1,5 +1,7 @@
 # Ridibooks CMS Bootstrap - Node.js
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/ridi/cms-bootstrap-js.svg)](https://greenkeeper.io/)
+
 ## Setup
 
 - Add host `127.0.0.1 admin.dev.ridi.com`
