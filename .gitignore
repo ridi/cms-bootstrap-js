@@ -1,0 +1,4 @@
+docker/couchbase/lib
+docker/mariadb/data
+node_modules
+vendor

@@ -1,0 +1,47 @@
+{
+  "name": "@ridi/cms-bootstrap-js",
+  "version": "1.0.0",
+  "description": "Ridibooks CMS Bootstrap JS",
+  "main": "index.js",
+  "dependencies": {
+    "@ridi/cms-sdk": "^2.0.0",
+    "babel-polyfill": "^6.26.0",
+    "cookies": "^0.7.1",
+    "express": "^4.16.2"
+  },
+  "devDependencies": {
+    "@ridi/eslint-config": "^3.1.0",
+    "chai": "^4.1.2",
+    "css-loader": "^0.28.7",
+    "eslint": "^4.12.0",
+    "eslint-config-ridibooks": "^2.0.1",
+    "eslint-loader": "^1.9.0",
+    "file-loader": "^0.11.2",
+    "style-loader": "^0.18.2",
+    "url-loader": "^0.5.9"
+  },
+  "scripts": {
+    "lint": "eslint --ext .js *.js",
+    "start": "node index.js"
+  },
+  "files": [
+    "LICENSE",
+    "HISTORY.md",
+    "README.md",
+    "index.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ridi/cms-sdk.git"
+  },
+  "keywords": [
+    "javascript",
+    "ridi",
+    "ridibooks"
+  ],
+  "bugs": {
+    "url": "https://github.com/ridi/cms-bootstrap-js/issues"
+  },
+  "homepage": "https://github.com/ridi/cms-bootstrap-js#readme",
+  "license": "MIT"
+}
