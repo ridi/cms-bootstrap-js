@@ -16,9 +16,9 @@
     "eslint": "^4.12.0",
     "eslint-config-ridibooks": "^2.0.1",
     "eslint-loader": "^1.9.0",
-    "file-loader": "^0.11.2",
-    "style-loader": "^0.18.2",
-    "url-loader": "^0.5.9"
+    "file-loader": "^1.1.5",
+    "style-loader": "^0.19.0",
+    "url-loader": "^0.6.2"
   },
   "scripts": {
     "lint": "eslint --ext .js *.js",
