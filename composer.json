@@ -1,0 +1,16 @@
+{
+  "name": "ridi/cms-bootstrap-js",
+  "description": "RIDI CMS bootstrap project",
+  "type": "project",
+  "license": "MIT",
+  "require": {
+  },
+  "require-dev": {
+    "robmorgan/phinx": "^0.8.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "Ridibooks\\Cms\\Example\\": "src"
+    }
+  }
+}
