@@ -46,8 +46,9 @@ app.use(cmsSession);
 
 app.use(authorizer);
 
-app.get('/example/home', (req, res) => {
-  res.json(req.session.getUserMenus());
+app.get('/example/home', async (req, res) => {
+  const menus = await req.session.getUserMenus();
+  res.json(menus);
 });
 
 // forbiden
@@ -55,6 +56,6 @@ app.get('/example/', (req, res) => {
   res.send(req.session.getLoginId());
 });
 
-app.listen(8080, () => {
-  console.log('Example app listening on port 8080!');
+app.listen(8000, () => {
+  console.log('Example app listening on port 8000!');
 });
