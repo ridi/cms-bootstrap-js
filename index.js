@@ -5,20 +5,24 @@ const { CmsSdk, CmsSession } = require('@ridi/cms-sdk');
 
 const sdk = new CmsSdk({
   cmsRpcUrl: 'http://admin.dev.ridi.com',
-  couchbaseUri: '127.0.0.1',
 });
 
 async function authorizer(req, res, next) {
   console.log(req.url);
 
-  const login = req.session && await req.session.isLogin();
-  if (!login) {
+  req.cmsSession = new CmsSession(sdk);
+  const cookies = new Cookies(req, null);
+  const token = cookies.get('cms-token');
+
+  const data = await req.cmsSession.shouldRedicrectForLogin(token);
+
+  if (!data || !data.user_id) {
     const loginUrl = sdk.getLoginPageUrl(req.url);
     res.redirect(req.baseUrl + loginUrl);
     return;
   }
 
-  const allowed = await req.session.authorizeUrl(req.method, req.url);
+  const allowed = await req.cmsSession.authorizeUrl(req.method, req.url);
   if (allowed) {
     console.log(`access allowed: ${req.url}`);
     next();
@@ -27,33 +31,18 @@ async function authorizer(req, res, next) {
   }
 }
 
-async function cmsSession(req, res, next) {
-  const cookies = new Cookies(req, null);
-  const sessionId = cookies.get('PHPSESSID');
-  if (sessionId == null) {
-    next();
-    return;
-  }
-
-  req.session = new CmsSession(sessionId, sdk);
-  await req.session.load();
-  next();
-}
-
 const app = express();
-
-app.use(cmsSession);
 
 app.use(authorizer);
 
 app.get('/example/home', async (req, res) => {
-  const menus = await req.session.getUserMenus();
+  const menus = await req.cmsSession.getUserMenus();
   res.json(menus);
 });
 
 // forbiden
 app.get('/example/', (req, res) => {
-  res.send(req.session.getLoginId());
+  res.send(req.cmsSession.getLoginId());
 });
 
 app.listen(8000, () => {

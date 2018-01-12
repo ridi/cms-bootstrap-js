@@ -4,7 +4,6 @@
   "description": "Ridibooks CMS Bootstrap JS",
   "main": "index.js",
   "dependencies": {
-    "@ridi/cms-sdk": "^2.0.0",
     "babel-polyfill": "^6.26.0",
     "cookies": "^0.7.1",
     "express": "^4.16.2"
