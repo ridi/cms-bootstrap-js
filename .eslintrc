@@ -1,9 +1,10 @@
 {
   "extends": "@ridi",
-  "rules": {
-    "import/prefer-default-export": "off"
-  },
   "env": {
     "mocha": true
+  },
+  "rules": {
+    "no-console": 0,
+    "import/prefer-default-export": "off"
   }
 }
