@@ -1,0 +1,3 @@
+[submodule "cms-docker-compose"]
+	path = cms-docker-compose
+	url = git@github.com:/ridi/cms-docker-compose

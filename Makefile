@@ -1,15 +1,17 @@
-.PHONY: install cms-up cms-down migrate-samples
+.PHONY: install cms-up cms-down
 
-build:
-	composer install
+install:
+	git submodule init
+	git submodule update
+	cp cms-docker-compose/.env.sample cms-docker-compose/.env
+	make -C cms-docker-compose install
 	npm install
 
-migrate-samples:
-	vendor/bin/phinx migrate
-	vendor/bin/phinx seed:run
-
 cms-up:
-	docker-compose up
+	make -C cms-docker-compose up
+
+cms-db:
+	make -C cms-docker-compose db-migrate
 
 cms-down:
-	docker-compose down
+	make -C cms-docker-compose down
