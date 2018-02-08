@@ -3,15 +3,15 @@
 install:
 	git submodule init
 	git submodule update
-	cp cms-docker-compose/.env.sample cms-docker-compose/.env
-	make -C cms-docker-compose install
+	cp cms/.env.sample cms/.env
+	make -C cms install
 	npm install
 
 cms-up:
-	make -C cms-docker-compose up
+	make -C cms up
 
 cms-db:
-	make -C cms-docker-compose db-migrate
+	make -C cms db-migrate
 
 cms-down:
-	make -C cms-docker-compose down
+	make -C cms down
