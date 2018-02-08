@@ -3,6 +3,7 @@ const express = require('express');
 const Cookies = require('cookies');
 const { CmsSdk, LoginSession } = require('@ridi/cms-sdk');
 
+// If the port changes, './cms/.env' file also needs to be updated.
 const PORT = 8080;
 const RPC_END_POINT = 'http://localhost';
 
@@ -15,7 +16,7 @@ async function authorizer(req, res, next) {
 
   req.session = new LoginSession(sdk);
   const cookies = new Cookies(req, null);
-  const token = cookies.get('cms-token');
+  const token = cookies.get(req.session.getCmsTokenCookieName());
 
   try {
     await req.session.authorize(token, req.url);
