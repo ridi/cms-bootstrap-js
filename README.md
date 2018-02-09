@@ -1,12 +1,23 @@
 # Ridibooks CMS Bootstrap - Node.js
 
+A node.js example project for CMS-SDK.
+
+This example uses docker images provided by [cms-docker-compose](https://github.com/ridi/cms-docker-compose). Learn more details about the docker images in the link.
+
+## Requirements
+
+- composer
+- docker
+
 ## Setup
 
-- Add host `127.0.0.1 admin.dev.ridi.com`
-- `make build`
-- Open a new console and run CMS server on Docker
-  - `make cms-up`
-- In the previouse console, migrate the sample DB.
-  - `make migrate-samples`
-- Run the example: `npm start`
-- `open http://admin.dev.ridi.com/example/home`
+1. `make install`
+1. `make cms-up` will start docker containers.
+1. Wait for several seconds until the conainers startup.
+1. `make cms-db` for sample db migration. If it fails, try again in a few seconds.
+1. `npm start` will run the sample code.
+1. `make cms-down` for shutting down the containers.
+
+## APIs
+
+See [here](https://github.com/ridi/cms-sdk/tree/2.x/lib/thrift-idl) for all available APIs.
