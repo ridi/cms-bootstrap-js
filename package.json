@@ -4,16 +4,16 @@
   "description": "Ridibooks CMS Bootstrap JS",
   "main": "index.js",
   "dependencies": {
-    "@ridi/cms-sdk": "^2.0.1",
+    "@ridi/cms-sdk": "^2.3.1",
     "babel-polyfill": "^6.26.0",
     "cookies": "^0.7.1",
-    "express": "^4.16.2"
+    "express": "^4.16.3"
   },
   "devDependencies": {
     "@ridi/eslint-config": "^3.1.0",
     "chai": "^4.1.2",
-    "css-loader": "^0.28.7",
-    "eslint": "^4.12.0",
+    "css-loader": "^0.28.11",
+    "eslint": "^4.19.1",
     "eslint-config-ridibooks": "^2.0.1",
     "eslint-loader": "^1.9.0",
     "file-loader": "^0.11.2",

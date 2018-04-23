@@ -20,6 +20,10 @@ async function authorizer(req, res, next) {
 
   try {
     await req.session.authorize(token, req.url);
+    /* For `authorizeByTag`
+    const authService = sdk.getAuthService();
+    await authService.authorizeByTagAsync(token, ['예제']);
+    */
     console.log(`access allowed: ${req.url}`);
     next();
   } catch (e) {
